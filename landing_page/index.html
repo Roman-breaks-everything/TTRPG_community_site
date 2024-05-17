@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link href="./normalize.css" rel="stylesheet" />
+    <link href="./ios.css" rel="stylesheet" />
+    <title>Document</title>
+  </head>
+  <body>
+    <header class="header">
+      <img src="./avatar.jpg" alt="avatar" class="header__avatar" />
+      <div class="header__textContainer">
+        <h1 class="header__title"> Приветствуем в «Natural 20!»</h1>
+        <h3 class="header__subtitle">Набор  игроков закрыт!</h3>
+      </div>
+    </header>
+    <main>
+      <section class="links">
+        <h2 class="links__header">Инструментарий 🎲</h2>
+        <ul class="links__container">
+          <li class="links__link">
+            <p class="links__title">Платформа</p>
+            <a class="linsk__link" href="https://roll20.net/">Roll 20</a>
+          </li>
+          <li class="links__link">
+            <p class="links__title">Связь</p>
+            <a class="linsk__link" href="https://discord.com"
+              >Discord</a
+            >
+          </li>
+		  
+                   <li class="links__link">
+            <p class="links__title">Система</p>
+            <a class="linsk__link" href="https://ru.wikipedia.org/wiki/Dungeons_%26_Dragons#5-%D1%8F_%D1%80%D0%B5%D0%B4%D0%B0%D0%BA%D1%86%D0%B8%D1%8F">D&D 5e</a>
+          </li>
+		  <li class="links__link">
+            <p class="links__title">Battle maps</p>
+            <a class="linsk__link" href="https://www.dungeonalchemist.com"
+              >Alchemist</a
+            >
+          </li>
+		  <li class="links__link">
+            <p class="links__title">Компендиум</p>
+            <a class="linsk__link" href="https://dnd.su"
+              >Dungeons.ru</a
+            >
+          </li>
+         
+        </ul>
+      </section>
+      <section class="links">
+        <h2 class="links__header">Команда</h2>
+        <ul class="links__container">
+          <li class="links__link">
+            <p class="links__title">Ведущий</p>
+            <a class="linsk__link" href="https://vk.com/id146966951">Роман</a>
+          </li>
+          <li class="links__link">
+            <p class="links__title">Художник</p>
+            Даниела
+          </li>
+          <li class="links__link">
+            <p class="links__title">История игр</p>
+            Валентина
+          </li>
+          <li class="links__link">
+            <p class="links__title">Подбор музыки</p>
+            <a class="linsk__link" href="https://vk.com/imbagins">Дарья</a>
+          </li>
+          <li class="links__link">
+            <p class="links__title">Друзья проекта</p>
+            <a class="linsk__link" href="https://dnd.su">DnD.su</a>
+          </li>
+        </ul>
+      </section>
+	    <section class="links">
+        <h2 class="links__header">Играем в системы</h2>
+        <ul class="links__container">
+          <li class="links__link">
+            <p class="links__title">Mouse guard</p>
+            <a class="linsk__link" href="https://mouseguard.fandom.com/ru/wiki/%22%D0%9C%D1%8B%D1%88%D0%B8%D0%BD%D0%B0%D1%8F_%D0%A1%D1%82%D1%80%D0%B0%D0%B6%D0%B0%22,_%D0%BD%D0%B0%D1%81%D1%82%D0%BE%D0%BB%D1%8C%D0%BD%D0%B0%D1%8F_%D1%80%D0%BE%D0%BB%D0%B5%D0%B2%D0%B0%D1%8F_%D0%B8%D0%B3%D1%80%D0%B0">Описание</a>
+          </li>
+		  <li class="links__link">
+            <p class="links__title">10 candles</p>
+            <a class="linsk__link" href="https://tesera.ru/article/1683788/">Описание</a>
+          </li>
+		  <li class="links__link">
+            <p class="links__title">Starfinder</p>
+            <a class="linsk__link" href="https://www.starfinder.com">Описание</a>
+          </li>
+		  <li class="links__link">
+            <p class="links__title">Pathfinder 1e</p>
+            <a class="linsk__link" href="https://pathfinder-wiki.ru">Описание</a>
+          </li>
+		  <li class="links__link">
+            <p class="links__title">Savage Worlds</p>
+            <a class="linsk__link" href="https://vk.com/savageworldsfun">Описание</a>
+          </li>
+          
+        </ul>
+      </section>
+    </main>
+	<button type = "button" class="button-link" onclick="generateRandomNumber()" href=""> Войти в подземелье!  </button>
+ 
+  <div id="popup" class="popup" hidden>
+  <p style="text-align: center;">Кидаем d20...</p>
+  <p id="randomNumber" style="text-align: center;"></p>
+  <p id="message" style="text-align: center;"></p>
+  
+</div>
+
+  <script>
+function generateRandomNumber() {
+  // Генерируем случайное число от 1 до 20
+  let randomNumber = Math.floor(Math.random() * 20) + 1;
+
+  // Выводим сообщение с числом во всплывающем окне
+  document.getElementById("randomNumber").textContent = randomNumber;
+
+  // Определяем сообщение в зависимости от диапазона
+  let message;
+  switch (true) {
+    case randomNumber <= 9:
+      message = ["Дверь оказалась мимиком!", "Создавай нового персонажа"];
+      break;
+    case randomNumber <= 19:
+      message = "Приключение начинается здесь...";
+      break;
+    case randomNumber === 20:
+      message = "Ты находишь сокровищницу короля!";
+      break;
+  }
+
+  // Очистка элемента сообщения
+  let messageElement = document.getElementById("message");
+  messageElement.textContent = "";
+
+  // Добавление строк сообщения
+  if (Array.isArray(message)) {
+    for (let line of message) {
+      let span = document.createElement("span");
+      span.textContent = line;
+      span.style.display = "block";
+      messageElement.appendChild(span);
+    }
+  } else {
+    messageElement.textContent = message;
+  }
+
+  // Отображение всплывающего окна
+  document.getElementById("popup").style.display = "block";
+}
+</script>
+   <footer>
+	
+ 
+     </footer>
+  </body>
+</html>
